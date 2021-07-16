@@ -33,6 +33,7 @@ router.get('/:id', (req, res) => {
       },
     ]
   })
+
     .then(dbCategoryData => {
       if (!dbCategoryData) {
         res.status(404).json({ message: 'No user found with this id' });
@@ -46,6 +47,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// Create Tag
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
@@ -60,6 +62,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// Update Tag Name
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update(req.body, {
@@ -80,6 +83,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// Delete Tag name
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
