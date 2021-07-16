@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// Get Category
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
@@ -45,6 +46,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// Create Category
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
@@ -59,6 +61,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// Update Category
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(req.body, {
@@ -69,7 +72,7 @@ router.put('/:id', (req, res) => {
     .then(dbUserData => {
       if (!dbUserData) {
         // error catch
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: 'user was not found with this id' });
         return;
       }
       res.json(dbUserData);
@@ -80,6 +83,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// Delete Category
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
